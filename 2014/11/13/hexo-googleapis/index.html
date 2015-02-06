@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo博客页面加载很慢的问题 | Jayzalex&#39;s Blog</title>
+  <meta name="author" content="Jayzalex">
+  
+  <meta name="description" content="Android开发程序员">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Hexo博客页面加载很慢的问题"/>
+  <meta property="og:site_name" content="Jayzalex&#39;s Blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="Jayzalex&#39;s Blog" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Jayzalex&#39;s Blog</a></h1>
+  <h2><a href="/">编程是最易习得的超能力XD</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+      <li><a href="/about">关于</a></li>
+    
+	<li> <a href="/atom.xml">RSS</a> </li>
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2014-11-13T14:03:54.000Z"><a href="/2014/11/13/hexo-googleapis/">11月 13 2014</a></time>
+      
+      
+  
+    <h1 class="title">Hexo博客页面加载很慢的问题</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>最近用hexo写博客，发现页面加载速度非常慢，发现主要原因是<strong>hexo的模板里引用了googleapis中的jquery.min.js和fonds，googleapis会被墙</strong>。<br>可以使用360网站卫士<a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a>的前端库替换掉原先的。</p>
+<h3 id="示例：">示例：</h3>
+<p>以<code>light</code>主题为例子，需要更改下面三处地方：</p>
+<p>\themes\light\layout_partial\after_footer.ejs:<br>原先是</p>
+<figure class="highlight script"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></figure>
+
+<p>改为</p>
+<figure class="highlight script"><pre><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.useso.com/ajax/libs/jquery/2.0.3/jquery.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></figure>
+
+<p>\public\css\style.css:<br>原先是</p>
+<figure class="highlight script"><pre><div class="line"><span class="attribute">fonts.googleapis.com/css?family</span>=<span class="string">Lato:400,400italic</span></div></pre></figure>
+
+<p>改为</p>
+<figure class="highlight css\style"><pre><div class="line"><span class="attribute">fonts.useso.com/css?family</span>=<span class="string">Lato:400,400italic</span></div></pre></figure>
+
+<p>\themes\light\source\css_base\variable.styl:<br>原先是</p>
+<figure class="highlight css\style"><pre><div class="line"><span class="attribute">fonts.googleapis.com/css?family</span>=<span class="string">Lato:400,400italic</span></div></pre></figure>
+
+<p>改为</p>
+<figure class="highlight css\style"><pre><div class="line"><span class="attribute">fonts.useso.com/css?family</span>=<span class="string">Lato:400,400italic</span></div></pre></figure>
+
+
+      
+    </div>
+    <footer>
+      
+        
+  
+  <div class="categories">
+    <a href="/categories/hexo/">hexo</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/hexo/">hexo</a>, <a href="/tags/googleapis/">googleapis</a>, <a href="/tags/useso/">useso</a>
+  </div>
+
+        <!-- Baidu Button BEGIN -->
+		<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone"></a><a href="#" class="bds_tsina" data-cmd="tsina"></a><a href="#" class="bds_tqq" data-cmd="tqq"></a><a href="#" class="bds_renren" data-cmd="renren"></a><a href="#" class="bds_weixin" data-cmd="weixin"></a></div>
+		<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{},"image":{"viewList":["qzone","tsina","tqq","renren","weixin"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>		
+		<!-- Baidu Button END -->
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+ <nav id="pagination" >
+    
+    <a href="/2014/12/11/android-jsinterface/" class="alignleft prev" >上一页</a>
+    
+    
+    <div class="clearfix"></div>
+</nav>
+<section id="comment">
+<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="2014/11/13/hexo-googleapis/" data-title="Hexo博客页面加载很慢的问题" data-url="http://jayzalex.github.io/2014/11/13/hexo-googleapis/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"794076772"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- 多说公共JS代码 end -->
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//baidu.com/baidu" method="get" accept-charset="utf-8">
+    <input type="search" name="word" results="0" placeholder="搜索">
+    <input type="hidden" name="si" value="jayzalex.github.io">
+    <input name=tn type=hidden value="bds">
+	<input name=cl type=hidden value="3">
+	<input name=ct type=hidden value="2097152">
+	<input name=s type=hidden value="on">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">分类</h3>
+  <ul class="entry">
+  
+    <li><a href="/categories/hexo/">hexo</a><small>1</small></li>
+  
+    <li><a href="/categories/java/">java</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">标签云</h3>
+  <div class="entry">
+    <a href="/tags/JavascriptInterface/" style="font-size: NaNpx;">JavascriptInterface</a><a href="/tags/WebView/" style="font-size: NaNpx;">WebView</a><a href="/tags/android/" style="font-size: NaNpx;">android</a><a href="/tags/googleapis/" style="font-size: NaNpx;">googleapis</a><a href="/tags/hexo/" style="font-size: NaNpx;">hexo</a><a href="/tags/java/" style="font-size: NaNpx;">java</a><a href="/tags/thread/" style="font-size: NaNpx;">thread</a><a href="/tags/useso/" style="font-size: NaNpx;">useso</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=1300109375&verifier=0a9cb46b&dpc=1"></iframe>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 Jayzalex
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.useso.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+<!-- 百度统计 begin--> 
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8a91fa751ce083c617ee96b837411afd' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<!-- 百度统计 end--> 
+
+</body>
+</html>
