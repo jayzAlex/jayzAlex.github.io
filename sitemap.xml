@@ -2,13 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://jayzalex.github.io/about/index.html</loc>
-    <lastmod>2014-11-12T12:55:14.000Z</lastmod>
+    <loc>http://jayzalex.github.io/2015/01/15/properly-stop-thread/</loc>
+    <lastmod>2015-01-15T08:53:15.000Z</lastmod>
   </url>
   
   <url>
-    <loc>http://jayzalex.github.io/2014/11/11/my-new-post/</loc>
-    <lastmod>2014-11-11T15:56:18.000Z</lastmod>
+    <loc>http://jayzalex.github.io/2014/11/13/hexo-googleapis/</loc>
+    <lastmod>2015-01-15T02:02:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jayzalex.github.io/2014/12/11/android-jsinterface/</loc>
+    <lastmod>2014-12-11T08:22:27.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://jayzalex.github.io/about/index.html</loc>
+    <lastmod>2014-11-12T12:55:14.000Z</lastmod>
   </url>
   
   <url>
